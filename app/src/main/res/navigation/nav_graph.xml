@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/baseFragment">
+
+    <fragment
+        android:id="@+id/baseFragment"
+        android:name="uz.afmin.remainder.ui.BaseFragment"
+        android:label="fragment_base"
+        tools:layout="@layout/fragment_base">
+        <action
+            android:id="@+id/action_baseFragment_to_newTaskFragment"
+            app:destination="@id/newTaskFragment" />
+        <action
+            android:id="@+id/action_baseFragment_to_taskCategoryFragment"
+            app:destination="@id/taskCategoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/completedTasksFragment"
+        android:name="uz.afmin.remainder.ui.CompletedTasksFragment"
+        android:label="fragment_completed_tasks"
+        tools:layout="@layout/fragment_completed_tasks">
+        <action
+            android:id="@+id/action_completedTasksFragment_to_newTaskFragment"
+            app:destination="@id/newTaskFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newTaskFragment"
+        android:name="uz.afmin.remainder.ui.NewTaskFragment"
+        android:label="fragment_new_task"
+        tools:layout="@layout/fragment_new_task">
+        <argument
+            android:name="newTaskArg"
+            app:argType="uz.afmin.remainder.core.models.TaskCategoryInfo"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/taskCategoryFragment"
+        android:name="uz.afmin.remainder.ui.TaskCategoryFragment"
+        android:label="fragment_task_category"
+        tools:layout="@layout/fragment_task_category">
+        <argument
+            android:name="categoryString"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_taskCategoryFragment_to_newTaskFragment"
+            app:destination="@id/newTaskFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="uz.afmin.remainder.ui.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+</navigation>
